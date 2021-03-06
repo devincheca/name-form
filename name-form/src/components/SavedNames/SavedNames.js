@@ -1,19 +1,32 @@
-import { useState } from 'react';
-import './SavedNames.scoped.css';
+import { useState } from 'react'
+import './SavedNames.scoped.css'
+// import GetNames from '../../helpers/GetNames'
 
 function SavedNames() {
 
-  const [names, setNames] = useState([])
+  const [names] = useState([])
   const [isLoading, setLoading] = useState(true)
 
   function getNames() {
     if (isLoading) {
-      setTimeout(() => setLoading(false), 2000);
-      return 'Loading...';
+      setTimeout(() => setLoading(false), 2000)
+      return (
+        <div>
+          Loading...
+        </div>
+      );
     }
     if (names.length === 0) {
-      return 'No names saved';
+      return (
+        <div>
+          No names saved
+        </div>
+      )
     }
+    /*
+    const res = await GetNames()
+    setNames(res)
+    */
     return names.map(name => {
       return (
         <div className="row">

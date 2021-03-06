@@ -1,5 +1,5 @@
 export default class NameSaver {
-  
+
   constructor() {
     this.firstName = ''
     this.lastName = ''
