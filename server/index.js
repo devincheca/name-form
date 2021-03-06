@@ -8,7 +8,7 @@ const init = async () => {
     await server.register(Inert);
     Routes.map(route => server.route(route));
     await server.start();
-    console.log('Server running on port 3000');
+    console.log('Server running on port 4321');
 };
 
 init();
