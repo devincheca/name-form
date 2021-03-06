@@ -1,0 +1,60 @@
+This final task will most likely be very straight forward.  It will provide us an opportunity to see original code and ask him to reflect on it.  All in all he just has to make it work and be able to explain it via Zoom.  He can create it any way he wants.  The knowledge he gains (or already has) from building it is as deep as he needs to go.
+
+ 
+
+  The task is to create a simple web based intake form using the primary components of our back end stack, Hapijs, Postgres, and Sequelize.
+
+ 
+
+Stand up a Hapijs server https://hapi.dev/
+Create an intake form consisting of first and last name and a submit button.  Additionally display previous entries above the form.
+Store the submitted information in Postgres via Sequelize https://sequelize.org/master/
+“Encrypt” the data base entries with following algorithm
+ 
+
+1) If the length of the string (first or last name) is odd then remove the middle character and add it to encrypted strings for (first and last separately)
+
+​
+
+2) If the length of the string (first or last name) is even then remove the middle character - 1 and add it to encrypted strings for (first and last separately)
+
+​
+
+Do this until all the characters from the inputted first and last name are empty
+
+​
+
+then store the encrypted first and last name into the database
+
+​
+
+Ex: If I inputted Kevin Truong
+
+​
+
+here is an example result of Kevin
+
+​
+
+current string = Kevin output string = v
+
+current string = kein output string = ve
+
+current string = kin output string = vei
+
+current string = kn output string = veik
+
+current string = n output string = veikn
+
+ 
+
+The resulting display does not need to decrypt the result. 
+
+ 
+
+That’s all.  Feel free to share this exact email with him if you like.
+
+ 
+
+Thank you and great work on finding quality prospects.
+
