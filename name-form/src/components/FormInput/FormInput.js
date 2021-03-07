@@ -21,11 +21,7 @@ function FormInput(props) {
     const saver = new NameSaver()
     saver.firstName = firstName
     saver.lastName = lastName
-    saver.callback = (res) => {
-      setFirstName('')
-      setLastName('')
-      props.onSuccess(res)
-    }
+    saver.callback = (res) => props.onSuccess(res)
     saver.save()
   }
 
