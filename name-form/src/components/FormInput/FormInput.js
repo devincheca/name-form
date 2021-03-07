@@ -20,7 +20,7 @@ function FormInput() {
   }
 
   return (
-    <div className="App">
+    <div className="input-white">
       <div className="row pad-sides">
         <form className="col s12">
           <div className="row">
