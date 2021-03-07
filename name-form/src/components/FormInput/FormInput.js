@@ -36,6 +36,7 @@ function FormInput(props) {
                 placeholder="First Name"
                 type="text"
                 className="validate"
+                autoComplete="off"
                 onKeyUp={(event) => setFirstName(event.target.value)} />
             </div>
             <div className="input-field col s6">
@@ -44,6 +45,7 @@ function FormInput(props) {
                 placeholder="Last Name"
                 type="text"
                 className="validate"
+                autoComplete="off"
                 onKeyUp={(event) => setLastName(event.target.value)} />
             </div>
           </div>

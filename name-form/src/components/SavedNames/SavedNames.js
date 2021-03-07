@@ -10,6 +10,13 @@ function SavedNames(props) {
         </div>
       )
     }
+    if (!props.names) {
+      return (
+        <div>
+          No names saved
+        </div>
+      )
+    }
     if (props.names.length === 0) {
       return (
         <div>
