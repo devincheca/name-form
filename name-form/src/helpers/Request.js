@@ -9,12 +9,13 @@ export default class Request {
   }
 
   run() {
-    return fetch(this.url + this.endpoint, {
+    fetch(this.url + this.endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(this.data)
     })
       .then((res) => res.json())
+      .then((res) => this.callback(res))
       .catch((error) => console.error('Error:', error))
   }
 
