@@ -1,11 +1,21 @@
 import { useState } from 'react';
 import './FormInput.scoped.css';
-import NameSaver from '../../helpers/NameSaver'
+import {
+  NameSaver,
+  Request
+} from '../../helpers/helpers'
 
 function FormInput(props) {
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+
+  function clearAll() {
+    const req = new Request()
+    req.endpoint = 'names/clearAll'
+    req.callback = () => props.onClear()
+    req.run()
+  }
 
   function saveNameInput() {
     const saver = new NameSaver()
@@ -28,7 +38,8 @@ function FormInput(props) {
             </div>
           </div>
           <div className="row">
-            <button className="waves-effect waves-light btn" onClick={() => saveNameInput()}>Save</button>
+            <button className="waves-effect waves-light btn red button-space" onClick={() => clearAll()}>Clear All</button>
+            <button className="waves-effect waves-light btn button-space" onClick={() => saveNameInput()}>Save</button>
           </div>
         </div>
       </div>

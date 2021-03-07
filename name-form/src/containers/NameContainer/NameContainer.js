@@ -41,7 +41,9 @@ function NameContainer() {
       <SavedNames
         names={names}
         isLoading={isLoading} />
-      <FormInput onSuccess={() => refreshNames()} />
+      <FormInput
+        onSuccess={() => refreshNames()}
+        onClear={() => refreshNames()} />
     </div>
   );
 
