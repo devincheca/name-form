@@ -1,4 +1,6 @@
-const FirstLastNames = require('../models/firstlastnames');
+const { DataTypes } = require('sequelize');
+const sequel = require('../helpers/sequel');
+const FirstLastNames = require('../models/firstlastnames')(sequel(), DataTypes)
 
 module.exports = {
   method: 'POST',
@@ -11,6 +13,6 @@ module.exports = {
       firstNameEnc: request.payload.firstNameEnc,
       lastNameEnc: request.payload.lastNameEnc
     });
-    return { roundtrip: true };
+    return newName;
   }
 };

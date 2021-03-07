@@ -1,16 +1,12 @@
-import './App.css';
-import {
-  FormInput,
-  Header,
-  SavedNames
-} from './components/components';
+import './App.css'
+import { Header } from './components/components'
+import { NameContainer } from './containers/containers'
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <SavedNames />
-      <FormInput />
+      <NameContainer />
     </div>
   );
 }
