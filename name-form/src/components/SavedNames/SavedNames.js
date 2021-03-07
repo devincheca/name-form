@@ -9,12 +9,11 @@ function SavedNames() {
 
   useEffect(() => {
     const fetcher = new NameFetcher()
-    fetcher.getNames()
     fetcher.callback = (res) => {
-      console.log('from hapi:', res)
       setLoading(false)
-      setNames(res)
+      setNames(res.names)
     }
+    fetcher.getNames()
   })
 
   function getNames() {
@@ -32,9 +31,9 @@ function SavedNames() {
         </div>
       )
     }
-    return names.map(name => {
+    return names.map((name, i) => {
       return (
-        <div className="row">
+        <div key={i} className="row">
           <div className="col s6">
             {name.firstName}
           </div>

@@ -7,9 +7,10 @@ export default class NameFetcher {
   }
 
   getNames() {
-    const req = new Request();
-    req.callback = this.callback;
-    req.run();
+    const req = new Request()
+    req.endpoint = 'names/getNames'
+    req.callback = this.callback
+    req.run()
   }
 
 }
