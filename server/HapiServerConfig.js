@@ -3,9 +3,6 @@ module.exports = {
   port: 4321,
   host: 'localhost',
   routes: {
-    // cors: true,
-    cors: {
-      origin: ['*']
-    }
+    cors: true
   }
 };
