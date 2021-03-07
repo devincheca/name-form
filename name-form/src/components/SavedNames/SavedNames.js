@@ -1,15 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './SavedNames.scoped.css'
-// import GetNames from '../../helpers/GetNames'
+import NameFetcher from '../../helpers/NameFetcher'
 
 function SavedNames() {
 
-  const [names] = useState([])
+  const [names, setNames] = useState([])
   const [isLoading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetcher = new NameFetcher()
+    fetcher.callback = (res) => {
+      setLoading(false)
+      setNames(res.names)
+    }
+    fetcher.getNames()
+  })
 
   function getNames() {
     if (isLoading) {
-      setTimeout(() => setLoading(false), 2000)
       return (
         <div>
           Loading...
@@ -23,13 +31,9 @@ function SavedNames() {
         </div>
       )
     }
-    /*
-    const res = await GetNames()
-    setNames(res)
-    */
-    return names.map(name => {
+    return names.map((name, i) => {
       return (
-        <div className="row">
+        <div key={i} className="row">
           <div className="col s6">
             {name.firstName}
           </div>
