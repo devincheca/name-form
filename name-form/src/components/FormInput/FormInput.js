@@ -21,7 +21,11 @@ function FormInput(props) {
     const saver = new NameSaver()
     saver.firstName = firstName
     saver.lastName = lastName
-    saver.callback = (res) => props.onSuccess(res)
+    saver.callback = (res) => {
+      setFirstName('')
+      setLastName('')
+      props.onSuccess(res)
+    }
     saver.save()
   }
 
@@ -31,15 +35,29 @@ function FormInput(props) {
         <div className="col s12">
           <div className="row">
             <div className="input-field col s6">
-              <input id="first_name" placeholder="First Name" type="text" className="validate" onKeyUp={(event) => setFirstName(event.target.value)} />
+              <input
+                id="first_name"
+                placeholder="First Name"
+                type="text"
+                className="validate"
+                onKeyUp={(event) => setFirstName(event.target.value)} />
             </div>
             <div className="input-field col s6">
-              <input id="last_name" placeholder="Last Name" type="text" className="validate" onKeyUp={(event) => setLastName(event.target.value)} />
+              <input
+                id="last_name"
+                placeholder="Last Name"
+                type="text"
+                className="validate"
+                onKeyUp={(event) => setLastName(event.target.value)} />
             </div>
           </div>
           <div className="row">
-            <button className="waves-effect waves-light btn red button-space" onClick={() => clearAll()}>Clear All</button>
-            <button className="waves-effect waves-light btn button-space" onClick={() => saveNameInput()}>Save</button>
+            <button
+              className="waves-effect waves-light btn red button-space"
+              onClick={() => clearAll()}>Clear All</button>
+            <button
+              className="waves-effect waves-light btn button-space"
+              onClick={() => saveNameInput()}>Save</button>
           </div>
         </div>
       </div>

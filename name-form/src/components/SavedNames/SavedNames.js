@@ -5,8 +5,8 @@ function SavedNames(props) {
   function getNames() {
     if (props.isLoading) {
       return (
-        <div>
-          Loading...
+        <div className="progress">
+          <div className="indeterminate"></div>
         </div>
       )
     }
