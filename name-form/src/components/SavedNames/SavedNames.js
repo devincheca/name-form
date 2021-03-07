@@ -1,15 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './SavedNames.scoped.css'
-// import GetNames from '../../helpers/GetNames'
+import NameFetcher from '../../helpers/NameFetcher'
 
 function SavedNames() {
 
-  const [names] = useState([])
+  const [names, setNames] = useState([])
   const [isLoading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetcher = new NameFetcher()
+    fetcher.getNames()
+    fetcher.callback = (res) => {
+      console.log('from hapi:', res)
+      setLoading(false)
+      setNames(res)
+    }
+  })
 
   function getNames() {
     if (isLoading) {
-      setTimeout(() => setLoading(false), 2000)
       return (
         <div>
           Loading...
@@ -23,10 +32,6 @@ function SavedNames() {
         </div>
       )
     }
-    /*
-    const res = await GetNames()
-    setNames(res)
-    */
     return names.map(name => {
       return (
         <div className="row">
