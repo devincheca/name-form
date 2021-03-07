@@ -2,20 +2,16 @@ import { useState } from 'react';
 import './FormInput.scoped.css';
 import NameSaver from '../../helpers/NameSaver'
 
-function FormInput() {
+function FormInput(props) {
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
 
   function saveNameInput() {
-    console.log(firstName);
-    console.log(lastName);
     const saver = new NameSaver()
     saver.firstName = firstName
     saver.lastName = lastName
-    saver.callback = (res) => {
-      console.log(res)
-    }
+    saver.callback = (res) => props.onSuccess(res)
     saver.save()
   }
 

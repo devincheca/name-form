@@ -49,7 +49,6 @@ export default class NameSaver {
       firstNameEnc: firstNameEnc,
       lastNameEnc: lastNameEnc
     }
-    console.log(req.data)
     req.callback = this.callback
     req.run()
   } 
