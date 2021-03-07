@@ -8,13 +8,25 @@ function SavedNames() {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
+    if (isLoading) {
+      try { fetchNames() } catch(error) {
+        console.trace(error)
+        setTimeout(fetchNames, 5000)
+      }
+    }
+  })
+
+  function fetchNames() {
     const fetcher = new NameFetcher()
     fetcher.callback = (res) => {
+      console.log(res)
       setLoading(false)
-      setNames(res.names)
+      if (res) {
+        setNames(res)
+      }
     }
     fetcher.getNames()
-  })
+  }
 
   function getNames() {
     if (isLoading) {
@@ -33,16 +45,30 @@ function SavedNames() {
     }
     return names.map((name, i) => {
       return (
-        <div key={i} className="row">
-          <div className="col s6">
-            {name.firstName}
+        <div key={i} className={getRowColor(i)}>
+          <div className="row">
+            <div className="col s6">
+              First Name: {name.firstName}
+            </div>
+            <div className="col s6">
+              Last Name: {name.lastName}
+            </div>
           </div>
-          <div className="col s6">
-            {name.lastName}
+          <div className="row">
+            <div className="col s6">
+              First Name Encrypted: {name.firstNameEnc}
+            </div>
+            <div className="col s6">
+              Last Name Encrypted: {name.lastNameEnc}
+            </div>
           </div>
         </div>
       )
     })
+  }
+
+  function getRowColor(i) {
+    return i % 2 === 0 ? 'even-row' : 'odd-row';
   }
 
   return (
