@@ -1,6 +1,3 @@
-This final task will most likely be very straight forward.  It will provide us an opportunity to see original code and ask him to reflect on it.  All in all he just has to make it work and be able to explain it via Zoom.  He can create it any way he wants.  The knowledge he gains (or already has) from building it is as deep as he needs to go.
-
- 
 
   The task is to create a simple web based intake form using the primary components of our back end stack, Hapijs, Postgres, and Sequelize.
 
@@ -49,12 +46,3 @@ current string = n output string = veikn
  
 
 The resulting display does not need to decrypt the result. 
-
- 
-
-That’s all.  Feel free to share this exact email with him if you like.
-
- 
-
-Thank you and great work on finding quality prospects.
-
