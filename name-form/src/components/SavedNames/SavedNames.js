@@ -19,7 +19,6 @@ function SavedNames() {
   function fetchNames() {
     const fetcher = new NameFetcher()
     fetcher.callback = (res) => {
-      console.log(res)
       setLoading(false)
       if (res) {
         setNames(res)
